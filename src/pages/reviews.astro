@@ -1,0 +1,214 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const reviews = [
+  {
+    text: 'Elena is the best colorist in the Bay Area. When I walked in I was greeted warmly. She listens to exactly what you want and gives great advice. The salon is beautiful and products are fairly priced.',
+    author: 'Simone D.',
+    location: 'Belmont',
+  },
+  {
+    text: 'Quy was so friendly and squeezed me in the same day I called. She gave me a haircut I absolutely love — my hair felt and looked so healthy afterward.',
+    author: 'Maki U.',
+    location: 'Palo Alto',
+  },
+  {
+    text: 'I got balayage from Elena and it was exactly what I wanted. The consultation was thorough and she replicated the look perfectly. Sahar curled my hair beautifully. The mother-daughter duo is wonderful.',
+    author: 'Nidhi S.',
+    location: 'Sunnyvale',
+  },
+  {
+    text: 'This salon is truly exceptional. Elena\'s professionalism, warm welcome, and creative approach make every visit special.',
+    author: 'Stinger GT2',
+    location: '',
+  },
+  {
+    text: 'Sahar did an amazing balayage. Her personalized approach and attention to what I actually wanted made all the difference.',
+    author: 'Ady',
+    location: '',
+  },
+  {
+    text: 'I\'ve been a loyal client for years. Elena\'s cuts, color, and blow dry services are consistently excellent. I wouldn\'t trust anyone else with my hair.',
+    author: 'Marina A.',
+    location: '',
+  },
+  {
+    text: 'Elena is pure magic with highlights. She\'s fast too — highlights and a cut in about 90 minutes. I\'ve been going to her for years and have never been disappointed.',
+    author: 'Lisa N.',
+    location: '',
+  },
+  {
+    text: 'The best hair I\'ve ever had. Period.',
+    author: 'Diana A.',
+    location: '',
+  },
+  {
+    text: 'Elena is wonderful — professional, friendly, and creates a welcoming environment. The prices are very reasonable for the quality you get.',
+    author: 'Aditi L.',
+    location: '',
+  },
+  {
+    text: 'I\'m a regular client of Quy and I highly recommend her. She\'s skilled, efficient, and always delivers exactly what I ask for.',
+    author: 'Suraj B.',
+    location: '',
+  },
+  {
+    text: 'Cindy is incredibly talented. Her thoroughness and years of experience really show. I always leave feeling great about my hair.',
+    author: 'Himica K.',
+    location: '',
+  },
+];
+---
+
+<BaseLayout
+  title="Reviews — Salon Millennium | What Our Clients Say"
+  description="Read what clients say about Salon Millennium. Hundreds of happy clients trust Elena Butte for master hair color on California Ave, Palo Alto."
+  canonicalPath="/reviews/"
+>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <p class="section-label">Testimonials</p>
+      <h1>Kind Words</h1>
+    </div>
+  </section>
+
+  <!-- Pull Quote -->
+  <section class="section section-alt">
+    <div class="container">
+      <blockquote class="pull-quote fade-in">
+        <p>&ldquo;Elena is the best colorist in the Bay Area.&rdquo;</p>
+        <cite>Simone D., Belmont</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Reviews Wall -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label fade-in">What Clients Say</p>
+      <h2 class="section-title fade-in">Reviews</h2>
+      <div class="reviews-grid">
+        {reviews.map((review) => (
+          <blockquote class="review-card fade-in">
+            <p class="review-text">&ldquo;{review.text}&rdquo;</p>
+            <cite>
+              <strong>{review.author}</strong>
+              {review.location && <span>{review.location}</span>}
+            </cite>
+          </blockquote>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section-alt">
+    <div class="container cta-block fade-in">
+      <h2>Join Our Happy Clients</h2>
+      <p>Experience the color expertise and warm atmosphere that keeps clients coming back for over 25 years.</p>
+      <a href="#book" class="btn btn-primary">Book Your Appointment</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding: clamp(6rem, 10vw, 10rem) 0 clamp(2rem, 4vw, 4rem);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-header h1 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  /* Pull Quote */
+  .pull-quote {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .pull-quote p {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 3vw, 2.75rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+  }
+
+  .pull-quote cite {
+    font-family: var(--font-body);
+    font-style: normal;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+  }
+
+  /* Reviews Grid */
+  .reviews-grid {
+    columns: 3;
+    column-gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .review-card {
+    break-inside: avoid;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-left: 2px solid var(--color-accent);
+    background-color: var(--color-card);
+  }
+
+  .review-text {
+    font-family: var(--font-heading);
+    font-size: 1.0625rem;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
+  .review-card cite {
+    font-style: normal;
+    display: block;
+  }
+
+  .review-card cite strong {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .review-card cite span {
+    font-size: 0.75rem;
+    opacity: 0.6;
+  }
+
+  /* CTA Block */
+  .cta-block {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cta-block h2 {
+    margin-bottom: 1rem;
+  }
+
+  .cta-block p {
+    margin-bottom: 2rem;
+    opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    .reviews-grid {
+      columns: 1;
+    }
+  }
+</style>

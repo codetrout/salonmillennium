@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact — Salon Millennium | Visit Us on California Ave, Palo Alto"
+  description="Visit Salon Millennium at 409 California Ave, Palo Alto. Call (650) 654-2088 or book online. Master hair color & styling by Elena Butte."
+  canonicalPath="/contact/"
+>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <p class="section-label">Get in Touch</p>
+      <h1>Contact</h1>
+    </div>
+  </section>
+
+  <!-- Contact Info + Map -->
+  <section class="section">
+    <div class="container contact-grid">
+      <div class="contact-info fade-in">
+        <div class="contact-block">
+          <h3>Visit Us</h3>
+          <address>
+            <p>409 California Ave</p>
+            <p>Palo Alto, CA 94306</p>
+            <p class="contact-detail">(Inside Casual Chic Salon)</p>
+          </address>
+        </div>
+
+        <div class="contact-block">
+          <h3>Call Us</h3>
+          <a href="tel:6506542088" class="contact-phone">(650) 654-2088</a>
+        </div>
+
+        <div class="contact-block">
+          <h3>Hours</h3>
+          <p>By appointment</p>
+          <p class="contact-detail">Please call or book online to schedule</p>
+        </div>
+
+        <div class="contact-block">
+          <h3>Book Online</h3>
+          <p>Ready for your next appointment?</p>
+          <a href="#book" class="btn btn-primary contact-book-btn">Book Your Appointment</a>
+        </div>
+
+        <hr class="divider" />
+
+        <p class="contact-cancel">24-hour cancellation policy applies to all appointments.</p>
+      </div>
+
+      <div class="contact-map fade-in">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.2!2d-122.1426!3d37.4266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb0b4a6a69c27%3A0x3f3f3f3f3f3f3f3f!2s409%20California%20Ave%2C%20Palo%20Alto%2C%20CA%2094306!5e0!3m2!1sen!2sus!4v1700000000000"
+          width="100%"
+          height="100%"
+          style="border:0; min-height: 400px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Salon Millennium location — 409 California Ave, Palo Alto"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Bar -->
+  <section class="section contact-cta-section">
+    <div class="container contact-cta-inner fade-in">
+      <h2>We'd Love to See You</h2>
+      <p>
+        Whether it's your first visit or your hundredth, you're always welcome at Salon Millennium.
+        Call us at <a href="tel:6506542088">(650) 654-2088</a> or book online.
+      </p>
+      <a href="#book" class="btn btn-primary">Book Now</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding: clamp(6rem, 10vw, 10rem) 0 clamp(2rem, 4vw, 4rem);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-header h1 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: clamp(2rem, 4vw, 4rem);
+    align-items: start;
+  }
+
+  .contact-block {
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-block h3 {
+    margin-bottom: 0.75rem;
+  }
+
+  .contact-block address {
+    font-style: normal;
+  }
+
+  .contact-block address p {
+    line-height: 1.8;
+  }
+
+  .contact-detail {
+    font-size: 0.8125rem;
+    opacity: 0.6;
+    margin-top: 0.25rem;
+  }
+
+  .contact-phone {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: var(--color-accent);
+  }
+
+  .contact-phone:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .contact-book-btn {
+    margin-top: 1rem;
+  }
+
+  .contact-cancel {
+    font-size: 0.8125rem;
+    opacity: 0.5;
+  }
+
+  .contact-map {
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .contact-map iframe {
+    display: block;
+  }
+
+  /* CTA */
+  .contact-cta-section {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+  }
+
+  .contact-cta-inner {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .contact-cta-inner h2 {
+    color: var(--color-bg);
+    margin-bottom: 1rem;
+  }
+
+  .contact-cta-inner p {
+    opacity: 0.7;
+    margin-bottom: 2rem;
+  }
+
+  .contact-cta-inner a:not(.btn) {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-map {
+      order: -1;
+    }
+  }
+</style>

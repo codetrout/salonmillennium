@@ -1,0 +1,174 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-logo">Salon Millennium</span>
+        <p class="footer-tagline">Master Hair Color & Styling in Palo Alto since 2000.</p>
+      </div>
+
+      <div class="footer-contact">
+        <h4 class="footer-heading">Visit Us</h4>
+        <address>
+          409 California Ave<br />
+          Palo Alto, CA 94306<br />
+          <span class="footer-detail">(Inside Casual Chic Salon)</span>
+        </address>
+        <a href="tel:6506542088" class="footer-phone">(650) 654-2088</a>
+      </div>
+
+      <div class="footer-hours">
+        <h4 class="footer-heading">Hours</h4>
+        <p>By appointment<br />Please call or book online</p>
+      </div>
+
+      <div class="footer-links">
+        <h4 class="footer-heading">Explore</h4>
+        <nav aria-label="Footer navigation">
+          <ul role="list">
+            <li><a href="/about/">About</a></li>
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/reviews/">Reviews</a></li>
+            <li><a href="/contact/">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="footer-bottom">
+      <p>Products by <a href="https://kevinmurphy.com.au/us/en/pro/" target="_blank" rel="noopener noreferrer">KEVIN.MURPHY</a> &mdash; Skin Care for Your Hair</p>
+      <p class="footer-copy">&copy; {year} Salon Millennium. All rights reserved.</p>
+      <p class="footer-copy">24-hour cancellation policy applies to all appointments.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--color-text);
+    color: var(--color-card);
+    padding: clamp(3rem, 6vw, 5rem) 0 2rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .footer-logo {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-bg);
+  }
+
+  .footer-tagline {
+    margin-top: 0.75rem;
+    font-size: 0.9375rem;
+    opacity: 0.7;
+  }
+
+  .footer-heading {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+  }
+
+  address {
+    font-style: normal;
+    font-size: 0.9375rem;
+    line-height: 1.8;
+    opacity: 0.8;
+  }
+
+  .footer-detail {
+    font-size: 0.8125rem;
+    opacity: 0.6;
+  }
+
+  .footer-phone {
+    display: inline-block;
+    margin-top: 0.75rem;
+    color: var(--color-accent);
+    font-weight: 400;
+  }
+
+  .footer-hours p {
+    font-size: 0.9375rem;
+    line-height: 1.8;
+    opacity: 0.8;
+  }
+
+  .footer-links ul {
+    list-style: none;
+  }
+
+  .footer-links li + li {
+    margin-top: 0.5rem;
+  }
+
+  .footer-links a {
+    font-size: 0.9375rem;
+    color: var(--color-card);
+    opacity: 0.8;
+    transition: opacity 0.3s ease, color 0.3s ease;
+  }
+
+  .footer-links a:hover {
+    opacity: 1;
+    color: var(--color-accent);
+  }
+
+  .site-footer .divider {
+    background-color: var(--color-card);
+    opacity: 0.1;
+    margin: 2.5rem 0;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    font-size: 0.8125rem;
+    opacity: 0.6;
+  }
+
+  .footer-bottom a {
+    color: var(--color-accent);
+  }
+
+  .footer-bottom p + p {
+    margin-top: 0.25rem;
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+  }
+
+  @media (max-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .footer-brand {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

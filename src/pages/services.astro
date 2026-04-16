@@ -1,0 +1,310 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const colorServices = [
+  {
+    name: 'Balayage',
+    description: 'Hand-painted highlights for a natural, sun-kissed look with seamless grow-out. Elena\'s signature technique creates beautiful dimension and movement.',
+  },
+  {
+    name: 'Highlights & Lowlights',
+    description: 'Foil highlights and lowlights for precise, multi-dimensional color. From subtle brightness to bold contrast — tailored to your vision.',
+  },
+  {
+    name: 'Color Correction',
+    description: 'Expert correction for color that didn\'t go as planned elsewhere. Elena\'s careful approach restores your hair to the shade you actually wanted.',
+  },
+  {
+    name: 'Root Touch-Up',
+    description: 'Seamless root coverage that blends naturally with your existing color. Maintain your look between full color appointments.',
+  },
+  {
+    name: 'Full Color',
+    description: 'All-over color for a fresh, even result. Whether you\'re going darker, brighter, or covering gray, we achieve rich, lasting color.',
+  },
+];
+
+const otherServices = [
+  {
+    name: 'Haircuts — Women',
+    description: 'Precision cuts shaped to your face, hair type, and lifestyle. From long layers to short bobs, every cut is designed to move beautifully.',
+  },
+  {
+    name: 'Haircuts — Men',
+    description: 'Clean, well-structured cuts with attention to detail. Classic or contemporary — tailored to how you want to look and how much you want to style.',
+  },
+  {
+    name: 'Blow Dry & Styling',
+    description: 'Professional blow dry for volume, smoothness, or texture. Perfect for events or when you simply want to look your best.',
+  },
+  {
+    name: 'Keratin Treatment',
+    description: 'Smooth frizz, reduce styling time, and add lasting shine. Our keratin treatments keep hair healthy, manageable, and beautifully sleek for months.',
+  },
+  {
+    name: 'Manicures',
+    description: 'Classic manicure services for well-groomed, polished nails. A perfect complement to your salon visit.',
+  },
+  {
+    name: 'Consultations',
+    description: 'Not sure what you need? Book a consultation. We\'ll discuss your goals, assess your hair, and create a plan — no pressure, no obligation.',
+  },
+];
+---
+
+<BaseLayout
+  title="Services — Salon Millennium | Hair Color, Cuts & Treatments"
+  description="Hair color, balayage, highlights, haircuts, keratin treatments & more at Salon Millennium on California Ave, Palo Alto. Book your appointment today."
+  canonicalPath="/services/"
+>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <p class="section-label">What We Offer</p>
+      <h1>Services</h1>
+    </div>
+  </section>
+
+  <!-- Color Services (Primary) -->
+  <section class="section">
+    <div class="container">
+      <div class="services-intro fade-in">
+        <div class="services-intro-text">
+          <p class="section-label">Our Specialty</p>
+          <h2 class="section-title">Hair Color</h2>
+          <p>
+            Color is the heart of Salon Millennium. With over 25 years of experience,
+            Elena Butte has earned a reputation as one of the Bay Area's finest colorists.
+            Every color service begins with a thorough consultation — we listen to your
+            vision, assess your hair, and create a personalized plan before we begin.
+          </p>
+        </div>
+        <div class="services-intro-image">
+          <img
+            src="/images/balayage-result.webp"
+            alt="Beautiful balayage result — warm honey and caramel tones through dark brown hair"
+            loading="lazy"
+            width="480"
+            height="600"
+          />
+        </div>
+      </div>
+
+      <div class="service-list">
+        {colorServices.map((service, i) => (
+          <div class="service-item fade-in">
+            <div class="service-item-number">{String(i + 1).padStart(2, '0')}</div>
+            <div class="service-item-content">
+              <h3>{service.name}</h3>
+              <p>{service.description}</p>
+            </div>
+            <a href="#book" class="btn btn-outline service-item-cta">Book</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Other Services -->
+  <section class="section section-alt">
+    <div class="container">
+      <p class="section-label fade-in">Beyond Color</p>
+      <h2 class="section-title fade-in">Cuts, Treatments & More</h2>
+
+      <div class="other-services-grid">
+        {otherServices.map((service) => (
+          <div class="other-service-card fade-in">
+            <h3>{service.name}</h3>
+            <p>{service.description}</p>
+            <a href="#book" class="service-link">Book &rarr;</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Image + CTA -->
+  <section class="section">
+    <div class="container services-cta-grid fade-in">
+      <div class="services-cta-image">
+        <img
+          src="/images/haircut-service.webp"
+          alt="Stylist cutting hair with precision in a warm salon setting"
+          loading="lazy"
+          width="480"
+          height="600"
+        />
+      </div>
+      <div class="services-cta-text">
+        <h2>Every Visit Starts with a Conversation</h2>
+        <p>
+          We don't rush. Every appointment at Salon Millennium begins with a consultation —
+          a real conversation about what you want, what your hair needs, and how we can
+          get you there. Whether it's your first visit or your fiftieth, you'll always
+          feel heard.
+        </p>
+        <a href="#book" class="btn btn-primary">Book Your Appointment</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding: clamp(6rem, 10vw, 10rem) 0 clamp(2rem, 4vw, 4rem);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-header h1 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  /* Services Intro */
+  .services-intro {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: clamp(2rem, 4vw, 4rem);
+    align-items: start;
+    margin-bottom: 4rem;
+  }
+
+  .services-intro-text p {
+    margin-bottom: 1rem;
+  }
+
+  .services-intro-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  /* Service List (Color) */
+  .service-list {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .service-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .service-item-number {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--color-accent);
+    opacity: 0.4;
+    min-width: 3rem;
+  }
+
+  .service-item-content h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  .service-item-content p {
+    font-size: 0.9375rem;
+    max-width: 600px;
+  }
+
+  .service-item-cta {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.6875rem;
+    white-space: nowrap;
+  }
+
+  /* Other Services Grid */
+  .other-services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .other-service-card {
+    padding: 2.5rem 2rem;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .other-service-card:hover {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  .other-service-card h3 {
+    margin-bottom: 0.75rem;
+  }
+
+  .other-service-card p {
+    font-size: 0.9375rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .service-link {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* CTA Grid */
+  .services-cta-grid {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: clamp(2rem, 4vw, 4rem);
+    align-items: center;
+  }
+
+  .services-cta-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .services-cta-text h2 {
+    margin-bottom: 1.25rem;
+  }
+
+  .services-cta-text p {
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .services-intro {
+      grid-template-columns: 1fr;
+    }
+
+    .services-intro-image {
+      order: -1;
+    }
+
+    .service-item {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    .service-item-number {
+      font-size: 1.5rem;
+    }
+
+    .service-item-cta {
+      justify-self: start;
+    }
+
+    .other-services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .services-cta-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .services-cta-image {
+      order: -1;
+    }
+  }
+</style>

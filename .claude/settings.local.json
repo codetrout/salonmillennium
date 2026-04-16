@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(FAL_KEY=\"95d68065-5233-4829-bc7f-7f15b582657a:2ac53e800f05d7f47941a9b58f5d5e98\" node *)",
+      "Bash(npx astro *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/)",
+      "Bash(git init *)",
+      "Bash(gh auth *)",
+      "Bash(git add *)"
+    ]
+  }
+}
