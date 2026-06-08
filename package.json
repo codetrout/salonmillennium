@@ -10,5 +10,8 @@
   "dependencies": {
     "@fal-ai/client": "^1.9.5",
     "astro": "^5.18.1"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.5"
   }
 }
