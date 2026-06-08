@@ -1,55 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-const colorServices = [
-  {
-    name: 'Balayage',
-    description: 'Hand-painted highlights for a natural, sun-kissed look with seamless grow-out. Elena\'s signature technique creates beautiful dimension and movement.',
-  },
-  {
-    name: 'Highlights & Lowlights',
-    description: 'Foil highlights and lowlights for precise, multi-dimensional color. From subtle brightness to bold contrast — tailored to your vision.',
-  },
-  {
-    name: 'Color Correction',
-    description: 'Expert correction for color that didn\'t go as planned elsewhere. Elena\'s careful approach restores your hair to the shade you actually wanted.',
-  },
-  {
-    name: 'Root Touch-Up',
-    description: 'Seamless root coverage that blends naturally with your existing color. Maintain your look between full color appointments.',
-  },
-  {
-    name: 'Full Color',
-    description: 'All-over color for a fresh, even result. Whether you\'re going darker, brighter, or covering gray, we achieve rich, lasting color.',
-  },
-];
-
-const otherServices = [
-  {
-    name: 'Haircuts — Women',
-    description: 'Precision cuts shaped to your face, hair type, and lifestyle. From long layers to short bobs, every cut is designed to move beautifully.',
-  },
-  {
-    name: 'Haircuts — Men',
-    description: 'Clean, well-structured cuts with attention to detail. Classic or contemporary — tailored to how you want to look and how much you want to style.',
-  },
-  {
-    name: 'Blow Dry & Styling',
-    description: 'Professional blow dry for volume, smoothness, or texture. Perfect for events or when you simply want to look your best.',
-  },
-  {
-    name: 'Keratin Treatment',
-    description: 'Smooth frizz, reduce styling time, and add lasting shine. Our keratin treatments keep hair healthy, manageable, and beautifully sleek for months.',
-  },
-  {
-    name: 'Manicures',
-    description: 'Classic manicure services for well-groomed, polished nails. A perfect complement to your salon visit.',
-  },
-  {
-    name: 'Consultations',
-    description: 'Not sure what you need? Book a consultation. We\'ll discuss your goals, assess your hair, and create a plan — no pressure, no obligation.',
-  },
-];
+import { colorServices, otherServices } from '../data/services';
 ---
 
 <BaseLayout
@@ -73,10 +24,11 @@ const otherServices = [
           <p class="section-label">Our Specialty</p>
           <h2 class="section-title">Hair Color</h2>
           <p>
-            Color is the heart of Salon Millennium. With over 25 years of experience,
-            Elena Butte has earned a reputation as one of the Bay Area's finest colorists.
-            Every color service begins with a thorough consultation — we listen to your
-            vision, assess your hair, and create a personalized plan before we begin.
+            Color is at the heart of what we do. With over 25 years behind the chair,
+            Elena Butte has built her practice on listening first and working
+            carefully. Every color service begins with a thorough consultation — we
+            talk through your vision, assess your hair, and put together a plan before
+            we begin.
           </p>
         </div>
         <div class="services-intro-image">
@@ -92,14 +44,14 @@ const otherServices = [
 
       <div class="service-list">
         {colorServices.map((service, i) => (
-          <div class="service-item fade-in">
+          <a href={`/services/${service.slug}/`} class="service-item fade-in">
             <div class="service-item-number">{String(i + 1).padStart(2, '0')}</div>
             <div class="service-item-content">
               <h3>{service.name}</h3>
-              <p>{service.description}</p>
+              <p>{service.shortDescription}</p>
             </div>
-            <a href="#book" class="btn btn-outline service-item-cta">Book</a>
-          </div>
+            <span class="service-item-cta">Read more &rarr;</span>
+          </a>
         ))}
       </div>
     </div>
@@ -113,11 +65,11 @@ const otherServices = [
 
       <div class="other-services-grid">
         {otherServices.map((service) => (
-          <div class="other-service-card fade-in">
+          <a href={`/services/${service.slug}/`} class="other-service-card fade-in">
             <h3>{service.name}</h3>
-            <p>{service.description}</p>
-            <a href="#book" class="service-link">Book &rarr;</a>
-          </div>
+            <p>{service.shortDescription}</p>
+            <span class="service-link">Read more &rarr;</span>
+          </a>
         ))}
       </div>
     </div>
@@ -190,6 +142,17 @@ const otherServices = [
     align-items: center;
     padding: 2rem 0;
     border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+    transition: background-color 0.3s ease;
+  }
+
+  .service-item:hover {
+    color: var(--color-text);
+    background-color: rgba(184, 146, 106, 0.04);
+  }
+
+  .service-item:hover .service-item-cta {
+    color: var(--color-accent-hover);
   }
 
   .service-item-number {
@@ -211,8 +174,11 @@ const otherServices = [
   }
 
   .service-item-cta {
-    padding: 0.6rem 1.5rem;
-    font-size: 0.6875rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
     white-space: nowrap;
   }
 
@@ -225,14 +191,22 @@ const otherServices = [
   }
 
   .other-service-card {
+    display: block;
     padding: 2.5rem 2rem;
     background-color: var(--color-bg);
     border: 1px solid var(--color-border);
-    transition: box-shadow 0.3s ease;
+    color: var(--color-text);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
   }
 
   .other-service-card:hover {
+    color: var(--color-text);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px);
+  }
+
+  .other-service-card:hover .service-link {
+    color: var(--color-accent-hover);
   }
 
   .other-service-card h3 {

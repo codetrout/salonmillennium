@@ -20,6 +20,7 @@ const currentPath = Astro.url.pathname;
   <nav class="header-nav" aria-label="Main navigation">
     <div class="container header-nav-inner">
       <a href="/" class="logo" aria-label="Salon Millennium home">
+        <img src="/images/m_logo.png" alt="" class="logo-mark" width="48" height="48" />
         <span class="logo-text">Salon Millennium</span>
       </a>
 
@@ -106,18 +107,27 @@ const currentPath = Astro.url.pathname;
   .logo {
     text-decoration: none;
     color: var(--color-text);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
   }
 
   .logo:hover {
     color: var(--color-text);
   }
 
+  .logo-mark {
+    height: 2.25rem;
+    width: auto;
+    display: block;
+  }
+
   .logo-text {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: 1.4375rem;
     font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.04em;
+    line-height: 1;
   }
 
   .nav-toggle {
@@ -198,6 +208,14 @@ const currentPath = Astro.url.pathname;
 
   /* Mobile */
   @media (max-width: 768px) {
+    .logo-mark {
+      height: 2rem;
+    }
+
+    .logo-text {
+      font-size: 1.25rem;
+    }
+
     .header-book-mobile {
       display: inline-block;
     }
