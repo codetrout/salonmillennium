@@ -15,9 +15,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="hero-label">California Ave, Palo Alto</p>
       <h1>Salon<br />Millennium</h1>
       <p class="hero-sub">Stay connected with the clients who love you</p>
-      <a href="#book" class="btn btn-primary">Book Your Color Appointment</a>
+      <a href="/contact/#book" class="btn btn-primary">Book Your Color Appointment</a>
     </div>
   </section>
+
+  <!-- New Client Offer Ribbon -->
+  <aside class="offer-ribbon">
+    <div class="container offer-ribbon-inner">
+      <p class="offer-ribbon-text">
+        <span class="offer-ribbon-badge">New Client Offer</span>
+        Enjoy <strong>15% off</strong> your first visit.
+      </p>
+      <a href="/contact/#book" class="offer-ribbon-link">Book Now &rarr;</a>
+    </div>
+  </aside>
 
   <!-- About Elena -->
   <section class="section">
@@ -83,8 +94,35 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- Testimonials -->
+  <!-- Featured: Men's Camouflage Color -->
   <section class="section">
+    <div class="container">
+      <div class="feature-grid fade-in">
+        <div class="feature-image">
+          <img
+            src="/images/services/camouflage-color-for-men.webp"
+            alt="Distinguished man with naturally softened salt-and-pepper hair at Salon Millennium"
+            loading="lazy"
+            width="600"
+            height="400"
+          />
+        </div>
+        <div class="feature-text">
+          <p class="section-label">For Men</p>
+          <h2 class="section-title">Camouflage Color</h2>
+          <p>
+            A discreet, low-maintenance gray blend for men who want to look like
+            themselves — just sharper. No flat color, no demarcation line as it
+            grows out, no monthly upkeep. Most appointments take under an hour.
+          </p>
+          <a href="/services/camouflage-color-for-men/" class="btn btn-outline feature-btn">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section section-alt">
     <div class="container">
       <p class="section-label fade-in">Kind Words</p>
       <h2 class="section-title fade-in">What Our Clients Say</h2>
@@ -118,7 +156,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- Products -->
-  <section class="section section-alt">
+  <section class="section">
     <div class="container">
       <div class="products-grid fade-in">
         <div class="products-image">
@@ -153,7 +191,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <h2>Ready to Book?</h2>
         <p>Visit us at 409 California Ave, Palo Alto &mdash; or call <a href="tel:6506542088">(650) 654-2088</a></p>
       </div>
-      <a href="#book" class="btn btn-primary">Book Your Appointment</a>
+      <a href="/contact/#book" class="btn btn-primary">Book Your Appointment</a>
     </div>
   </section>
 
@@ -211,6 +249,63 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-style: italic;
     margin-bottom: 2.5rem;
     opacity: 0.9;
+  }
+
+  /* New Client Offer Ribbon */
+  .offer-ribbon {
+    background-color: var(--color-card);
+    color: var(--color-text);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .offer-ribbon-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem 1.5rem;
+    padding: 0.875rem 0;
+    text-align: center;
+  }
+
+  .offer-ribbon-text {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    margin: 0;
+  }
+
+  .offer-ribbon-text strong {
+    font-weight: 500;
+  }
+
+  .offer-ribbon-badge {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    border-radius: 2px;
+    padding: 0.2em 0.6em;
+    margin-right: 0.5rem;
+  }
+
+  .offer-ribbon-link {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    border-bottom: 1px solid var(--color-accent);
+    padding-bottom: 1px;
+    transition: color 0.3s ease;
+  }
+
+  .offer-ribbon-link:hover {
+    color: var(--color-accent-hover);
   }
 
   /* About Intro */
@@ -330,6 +425,28 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin-top: 3rem;
   }
 
+  /* Featured Service (Men's Camouflage Color) */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: clamp(2rem, 4vw, 4rem);
+    align-items: center;
+  }
+
+  .feature-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .feature-text p {
+    margin-bottom: 1.25rem;
+  }
+
+  .feature-btn {
+    margin-top: 0.5rem;
+  }
+
   /* Products */
   .products-grid {
     display: grid;
@@ -403,6 +520,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     .services-grid {
       grid-template-columns: 1fr;
+    }
+
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .feature-image {
+      order: -1;
     }
 
     .testimonials-grid {

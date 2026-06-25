@@ -15,6 +15,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
+  <!-- Booking Form -->
+  <section class="section booking-section" id="book">
+    <div class="container booking-inner">
+      <p class="section-label fade-in">Book Online</p>
+      <h2 class="section-title fade-in">Request an Appointment</h2>
+      <p class="booking-intro fade-in">
+        Fill out the form below and we'll be in touch to confirm. Prefer to talk?
+        Call us anytime at <a href="tel:6506542088">(650) 654-2088</a>.
+      </p>
+      <div class="booking-form fade-in">
+        <script is:inline src="https://www.cognitoforms.com/f/seamless.js" data-key="iIg8EbMzekytshhV5si8_A" data-form="35"></script>
+      </div>
+    </div>
+  </section>
+
   <!-- Contact Info + Map -->
   <section class="section">
     <div class="container contact-grid">
@@ -37,12 +52,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <h3>Hours</h3>
           <p>By appointment</p>
           <p class="contact-detail">Please call or book online to schedule</p>
-        </div>
-
-        <div class="contact-block">
-          <h3>Book Online</h3>
-          <p>Ready for your next appointment?</p>
-          <a href="#book" class="btn btn-primary contact-book-btn">Book Your Appointment</a>
         </div>
 
         <hr class="divider" />
@@ -73,7 +82,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         Whether it's your first visit or your hundredth, you're always welcome at Salon Millennium.
         Call us at <a href="tel:6506542088">(650) 654-2088</a> or book online.
       </p>
-      <a href="#book" class="btn btn-primary">Book Now</a>
+      <a href="/contact/#book" class="btn btn-primary">Book Now</a>
     </div>
   </section>
 </BaseLayout>
@@ -128,8 +137,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: var(--color-accent-hover);
   }
 
-  .contact-book-btn {
-    margin-top: 1rem;
+  /* Booking Form */
+  .booking-section {
+    scroll-margin-top: 90px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .booking-inner {
+    max-width: 760px;
+  }
+
+  .booking-intro {
+    margin: 1rem 0 2.5rem;
+    max-width: 560px;
+  }
+
+  .booking-intro a {
+    color: var(--color-accent);
+  }
+
+  .booking-intro a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .booking-form {
+    min-height: 200px;
   }
 
   .contact-cancel {
