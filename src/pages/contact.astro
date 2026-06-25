@@ -143,10 +143,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     border-bottom: 1px solid var(--color-border);
   }
 
-  .booking-inner {
-    max-width: 760px;
-  }
-
   .booking-intro {
     margin: 1rem 0 2.5rem;
     max-width: 560px;
@@ -162,6 +158,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .booking-form {
     min-height: 200px;
+    max-width: 720px;
+  }
+
+  /* Cognito injects its markup via JS, so target it globally */
+  .booking-form :global(.cognito) {
+    width: 100%;
+    margin: 0;
   }
 
   .contact-cancel {
